@@ -12,5 +12,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "always" 
+  }
 }

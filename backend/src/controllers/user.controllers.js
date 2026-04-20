@@ -4,6 +4,9 @@ import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 import { compressImage } from '../utils/imageCompress.utils.js';
 import ApiError from '../utils/apiError.utils.js';
+import { ENV } from '../config/env.js';
+
+const isProd = ENV.ENV === 'prod';
 
 const login = async (req, res) => {
   const { username, password } = req.body;
@@ -33,11 +36,18 @@ const login = async (req, res) => {
     profilePicData = `data:${user.profilePic.contentType};base64,${base64}`;
   }
 
+  res.cookie('sessionToken', sessionToken, {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    path: '/',
+  });
+
   return res.status(httpStatus.OK).json({
     name: user.name,
     username: user.username,
     profilePic: profilePicData,
-    sessionToken,
   });
 };
 

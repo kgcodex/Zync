@@ -1,18 +1,21 @@
 import { Server } from 'socket.io';
+import cookie from 'cookie';
 import { User } from './models/user.models.js';
 import { Meeting } from './models/meeting.models.js';
+import { ENV } from './config/env.js';
 
 export const initializeSocket = (httpServer) => {
   const io = new Server(httpServer, {
     cors: {
-      origin: '*',
+      origin: ENV.FRONTEND_URL,
+      credentials: true,
     },
   });
 
   // Auth Middleware
   io.use(async (socket, next) => {
     try {
-      const sessionToken = socket.handshake.auth.sessionToken;
+      const sessionToken = cookie.parse(socket.request.headers.cookie).sessionToken;
 
       if (!sessionToken) {
         return next(new Error('Authentication required'));

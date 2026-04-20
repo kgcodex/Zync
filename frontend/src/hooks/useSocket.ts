@@ -13,9 +13,7 @@ export const useSocket = (meetingCode: string) => {
   // Init Socket
   useEffect(() => {
     const s = io(SOCKET_URL, {
-      auth: {
-        sessionToken: localStorage.getItem('sessionToken'),
-      },
+      withCredentials: true,
       transports: ['websocket'],
     });
 

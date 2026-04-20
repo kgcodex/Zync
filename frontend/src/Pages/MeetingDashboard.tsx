@@ -13,7 +13,7 @@ const MeetingDashboard = () => {
   const user = useAppSelector((state) => state.user);
   const [showUpload, setShowUpload] = useState(false);
   return (
-    <div className="flex flex-row justify-center items-center mt-20">
+    <div className="flex flex-row justify-center items-center mt-20 ">
       <div className="flex flex-col lg:w-[50%] w-[80%] gap-6 px-4">
         <h1 className="text-4xl">Your Meetings</h1>
         <div className="flex flex-row justify-between items-end">

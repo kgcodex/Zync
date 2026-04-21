@@ -45,14 +45,12 @@ export const LoginForm = () => {
         password: password,
       });
 
-      //   localStorage.setItem('sessionToken', response.data?.sessionToken);
       toast.success(`Welcome: ${response?.data?.name}`);
 
       dispatch(initUser(response.data));
       navigate(from, { replace: true });
     } catch (err: any) {
       console.log(err);
-
       toast.error(`Log in Error: ${err.response?.data?.message || 'Log in failed'}`);
     }
   };

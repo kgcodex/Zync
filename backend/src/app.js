@@ -1,13 +1,14 @@
-import express from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
 
-import userRoutes from './routes/users.routes.js';
-import meetingRouter from './routes/meeting.routes.js';
-import { erroHandler } from './middlewares/error.middlewares.js';
 import { ENV } from './config/env.js';
+import { erroHandler } from './middlewares/error.middlewares.js';
+import meetingRouter from './routes/meeting.routes.js';
+import userRoutes from './routes/users.routes.js';
 
 const app = express();
+app.set('trust proxy', 1);
 
 app.use(cookieParser());
 

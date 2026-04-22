@@ -24,7 +24,16 @@ const ShowMeetings = () => {
   const navigate = useNavigate();
 
   const copyMeetingLink = async (meetingDetails: Meeting) => {
-    const fullLink = `Zync Meeting Link \n Join Video Conference with your friends or coworkers.\n Meeting Details:\n MeetingCode: ${meetingDetails.meetingCode}\n Start Time: ${meetingDetails.startTime}\n End Time: ${meetingDetails.endTime}\n Link: ${window.location.origin}/meeting/${meetingDetails.meetingCode}\n Thanks for using Zync Video Conferencing.`;
+    const fullLink = `
+    Zync Meeting Link
+    Join Video Conference with your friends or coworkers.
+    Meeting Details:
+    MeetingCode: ${meetingDetails.meetingCode}
+    Start Time: ${new Date(meetingDetails.startTime).toLocaleDateString()} | ${new Date(meetingDetails.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+    End Time: ${new Date(meetingDetails.endTime).toLocaleDateString()} | ${new Date(meetingDetails.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+    Link: ${window.location.origin}/meeting/${meetingDetails.meetingCode}
+    Thanks for using Zync Video Conferencing.
+    `;
 
     try {
       await navigator.clipboard.writeText(fullLink);

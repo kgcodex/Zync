@@ -26,7 +26,7 @@ const TechStack = () => {
           {doubleTech.map((tech, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center gap-4 group min-w-[120px]"
+              className="flex flex-col items-center justify-center gap-4 group min-w-30"
             >
               <div className="w-12 h-12 flex items-center justify-center transition-all duration-500 filter grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110">
                 <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />

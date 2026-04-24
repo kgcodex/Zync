@@ -1,8 +1,8 @@
 const ProductPreview = () => {
   return (
     <section className="relative py-20 overflow-hidden ">
-      <div className="max-md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-pink-600/10 blur-[100px] rounded-full" />
+      <div className="max-md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-blue-600/20 blur-[120px] rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-75 bg-pink-600/10 blur-[100px] rounded-full" />
 
       <div className="container relative mx-auto px-6">
         <div className="flex flex-col items-center mb-12">

@@ -34,7 +34,7 @@ const Pricing = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/5 blur-[150px] -z-10" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-pink-500/5 blur-[150px] -z-10" />
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
@@ -55,7 +55,7 @@ const Pricing = () => {
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-linear-to-r from-pink-500 to-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1">
                   <Sparkles size={12} /> RECOMMENDED
                 </div>
               )}
@@ -81,7 +81,7 @@ const Pricing = () => {
               <button
                 className={`w-full py-4 rounded-xl font-bold transition-all duration-300 ${
                   plan.highlighted
-                    ? 'bg-gradient-to-r from-pink-600 to-blue-600 hover:opacity-90 text-white'
+                    ? 'bg-linear-to-r from-pink-600 to-blue-600 hover:opacity-90 text-white'
                     : 'bg-zinc-800 hover:bg-zinc-700 text-white'
                 }`}
               >

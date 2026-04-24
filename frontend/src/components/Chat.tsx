@@ -56,9 +56,10 @@ const Chat = ({ socket, meetingCode }: ChatProps) => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full overflow-hidden">
       {/* SCROLLABLE AREA */}
-      <div className="flex-1 flex flex-col justify-end  overflow-y-auto no-scrollbar px-2">
+      <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar px-2">
+        <div className="flex-1 min-h-0"></div>
         {messages.map((msg) => (
           <ChatBubble
             key={msg.timestamp}
@@ -95,44 +96,6 @@ const Chat = ({ socket, meetingCode }: ChatProps) => {
         </Button>
       </div>
     </div>
-  );
-
-  return (
-    <>
-      <div className="flex flex-col justify-end h-[calc(100vh-100px)] overflow-y-auto no-scrollbar ">
-        {messages.map((msg) => (
-          <ChatBubble
-            key={`${msg.timestamp}`}
-            avatarURL={msg.profilePic}
-            username={msg.username}
-            message={msg.text}
-            type={user.username == msg.username ? 'send' : 'receive'}
-          />
-        ))}
-      </div>
-      <div className="absolute bottom-0 flex flex-row justify-center items-center gap-2 w-full mb-8 mx-4">
-        <input
-          type="text"
-          placeholder="Your Message"
-          value={myMessage}
-          onChange={(event) => setMyMessage(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key == 'Enter' && !event.shiftKey) {
-              event.preventDefault();
-              handleSend();
-            }
-          }}
-          className=" px-4 py-2 border-2 border-border rounded-xl w-[80%]"
-        />
-        <Button
-          className="size-11 px-2 active:shadow-sm active:translate-y-1 mr-12"
-          variant={'outline'}
-          onClick={handleSend}
-        >
-          <Send className="size-6" />
-        </Button>
-      </div>
-    </>
   );
 };
 

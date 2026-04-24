@@ -1,8 +1,8 @@
-import { Server } from 'socket.io';
 import cookie from 'cookie';
-import { User } from './models/user.models.js';
-import { Meeting } from './models/meeting.models.js';
+import { Server } from 'socket.io';
 import { ENV } from './config/env.js';
+import { Meeting } from './models/meeting.models.js';
+import { User } from './models/user.models.js';
 
 export const initializeSocket = (httpServer) => {
   const io = new Server(httpServer, {

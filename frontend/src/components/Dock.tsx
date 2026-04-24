@@ -26,11 +26,11 @@ const DockButton = ({
 }: DockButtonProps) => {
   return (
     <Button
-      className="size-15 rounded-2xl items-center justify-center border-0"
+      className="lg:size-15 size-12 lg:rounded-2xl rounded-xl items-center justify-center border-0"
       onClick={onClick}
       variant={active ? 'outline' : 'default'}
     >
-      {active ? <Icon className={className} /> : <AltIcon className={className} />}
+      {active ? <Icon className="lg:size-8 size-6" /> : <AltIcon className="lg:size-8 size-6" />}
     </Button>
   );
 };
@@ -49,36 +49,22 @@ const Dock = ({
 
   return (
     <div className="fixed bottom-0 left-1/2 -translate-x-1/2  mb-8 flex items-center justify-around gap-6">
-      <DockButton
-        icon={CameraOff}
-        altIcon={Camera}
-        active={cameraOn}
-        onClick={onToggleCamera}
-        className="size-8 "
-      />
-      <DockButton
-        icon={HeadphoneOff}
-        altIcon={Headphones}
-        active={micOn}
-        onClick={onToggleMic}
-        className="size-8"
-      />
+      <DockButton icon={CameraOff} altIcon={Camera} active={cameraOn} onClick={onToggleCamera} />
+      <DockButton icon={HeadphoneOff} altIcon={Headphones} active={micOn} onClick={onToggleMic} />
       <DockButton
         icon={ScreenShareOff}
         altIcon={ScreenShare}
         active={screenOn}
         onClick={onToggleScreen}
-        className="size-8"
       />
       <DockButton
         icon={MessageSquareOff}
         altIcon={MessageSquare}
         active={chatOn}
         onClick={onToggleChat}
-        className="size-8"
       />
       <Button
-        className="size-15 rounded-2xl items-center justify-center border-0 bg-red-600 hover:bg-red-700"
+        className="lg:size-15 size-12 lg:rounded-2xl rounded-xl items-center justify-center border-0 bg-red-600 hover:bg-red-700"
         onClick={() => {
           toast.success('Meeting Ends.');
           setTimeout(() => {
@@ -86,7 +72,7 @@ const Dock = ({
           }, 500);
         }}
       >
-        <X className="size-8" />
+        <X className="lg:size-8 size-6" />
       </Button>
     </div>
   );

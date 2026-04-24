@@ -8,7 +8,7 @@ import meetingRouter from './routes/meeting.routes.js';
 import userRoutes from './routes/users.routes.js';
 
 const app = express();
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
 app.use(cookieParser());
 

@@ -46,6 +46,22 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Slow Bounce Animations */
+  --animate-bounce-slow: bounce 4s infinite;
+  --animate-bounce-slow-delayed: bounce 4s infinite 2s;
+
+  /* Marquee Animation */
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 :root {
